@@ -1,15 +1,13 @@
-```markdown
 # 🏙️ CityFlow — Data Lakehouse on Databricks
 
 Production-grade medallion architecture using NYC Taxi data.
 
 ## 🏗️ Architecture
-```
+
 Raw CSV (S3) → Bronze (Delta) → Silver (Delta) → Gold (Delta)
                                                       ↓
                                               Dashboard + Unity Catalog
-```
-
+                                              
 ## 📊 Project Stats
 - **10.9M** raw records processed
 - **10.8M** clean records in Silver layer
@@ -29,14 +27,13 @@ Raw CSV (S3) → Bronze (Delta) → Silver (Delta) → Gold (Delta)
 | Open-Meteo API | Real-time air quality |
 
 ## 📁 Project Structure
-```
+
 notebooks/
 ├── 01_bronze_ingestion.py      # Raw data → Delta Lake
 ├── 02_silver_transformation.py # Cleaning + validation
 ├── 03_gold_layer.py            # Aggregations
 ├── 04_streaming_openaq.py      # Air quality streaming
 └── 05_unity_catalog.sql        # Data governance
-```
 
 ## 🔐 Security
 All credentials stored in **Databricks Secrets** — no hardcoded keys.
@@ -47,8 +44,8 @@ All credentials stored in **Databricks Secrets** — no hardcoded keys.
 
 ## 🚀 Pipeline
 Automated daily pipeline via Databricks Workflows:
-```
+
 bronze_ingestion → silver_transformation → gold_layer → streaming_airquality
-```
+
 Schedule: Daily 2:00 AM (Asia/Karachi)
-```
+
